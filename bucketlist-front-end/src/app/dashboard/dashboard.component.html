@@ -1,0 +1,146 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Create Bucketlist
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Create Bucketlist</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" #form="ngForm" (ngSubmit)="addBucketList(form.value)">
+                  <div class="form-group">
+                    <label  class="col-sm-2 control-label"
+                              for="inputEmail3">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" 
+                        id="inputname" placeholder="name" name = "name" ngModel/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                          for="inputPassword3" >Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"
+                            id="description" placeholder="description" name = "description" ngModel/>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default">Create</button>
+                    </div>
+                  </div>
+        </form>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+
+
+<section>
+  <div class="card"  *ngFor="let bucket of buckets.bucketlists">
+    <div class="card-bock">
+      <div class="card-content">
+              
+                <ul class="items">
+                <li>
+                  <table class="table table-bordered">
+                    <thead>
+                      <th>Name</th>
+                      <th>Description</th><br/>
+                      
+                    </thead>
+                    <tbody>
+                      <td>{{bucket.name}}</td>
+                      <td>{{bucket.description}}</td>
+                      
+                    </tbody>
+                  </table>
+                </li>
+                </ul>
+              <button class="btn btn-success" (click) = "getItems(bucket.id)" data-toggle="modal" data-target="#viewitems">View items</button>  
+             <button class="btn btn-success" (click) = "deleteBucketList(bucket.id)"> Delete Bucket </button>
+            
+            <br>
+             <label for="exampleSelect1">Add Item</label>
+                <input class="form-control" required name= "itemname" placeholder="Item Name"
+                [(ngModel)]="name"><br/>
+            <button class="btn btn-success"  (click)="addItem(name, bucket.id)">Add Item</button>     
+            </div>
+           
+                 
+            <div class="card-action">
+                <label for="exampleSelect1">New bucketlist name</label>
+                <input class="form-control" required name= "bucketname" placeholder="New Bucket Name"
+                [(ngModel)]="name">
+                 <br/>
+                <button class="btn btn-success"(click)="editBucketList(bucket.id, name)">Edit Bucket</button>
+               
+                
+                
+            </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="viewitems" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">View Bucketlist Items</h4>
+      </div>
+
+      <div class="modal-body" >
+         <table class="table" >
+         <thead><th>Item Name</th>
+         <th>State</th>
+         <th>Date Created</th>
+         </thead>
+
+         <tbody *ngFor="let item of items.Bucketlistitems">
+
+           <td>{{item.name}}</td>
+           <td>{{item.done}}</td>
+           <td>{{item.date_created}}<td>
+         </tbody>
+           
+         </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+ <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+
+
+

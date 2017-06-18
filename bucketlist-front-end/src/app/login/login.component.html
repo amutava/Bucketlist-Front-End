@@ -1,0 +1,26 @@
+<div class="container">
+      <div class="row">
+
+          <div class="col s6 offset-s3 z-depth-1" id="panell">
+            <h5 id="title">Login Form</h5>
+            <form #form="ngForm" (ngSubmit)="submit(form.value)">
+
+            <div class="input-field" id="username">
+              <input  type="text" class="validate" name="username" ngModel>
+              <label for="username">Username</label>
+          </div>
+          <div class="input-field" id="password">
+            <input  type="password" class="validate" name="password" ngModel>
+            <label for="password">Password</label>
+        </div>
+        <p>
+            <input type="checkbox" id="remember"/>
+            <label for="remember" id="checkbox" >Remember me</label>
+        </p>
+        <button class="waves-effect waves-light btn" id="loginbtn" type="submit">Login</button>
+        
+        </form>
+
+        </div>
+      </div>
+</div>
