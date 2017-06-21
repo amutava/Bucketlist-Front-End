@@ -1,4 +1,5 @@
 # BucketlistFrontEnd
+![alt](https://github.com/andela-amutava/Bucketlist-Front-End/tree/configuration/bucketlist-front-end/src/assets/images/bucketlist.png "index")
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 

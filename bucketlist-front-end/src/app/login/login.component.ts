@@ -16,14 +16,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  // submit(data) {
-  //   let response = this.loginService.postUser(data).toPromise().then((data) => {
-  //   console.log(response);
-  //   this.router.navigate(['./dashboard']);
-  // }).catch((error) => {
-  //     console.log('there was an error');
-  //   });
-
 
 submit(data){
     this.loginService.postUser(data)
@@ -33,7 +25,7 @@ submit(data){
       console.log(this.message)
 
       if(this.token != null){
-        this.router.navigate(["./dashboard"])
+        this.router.navigate(["./bucketlists"])
         localStorage.setItem('token', this.token)
         localStorage.setItem('username', response.username)
         

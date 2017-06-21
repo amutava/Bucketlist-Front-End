@@ -3,15 +3,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { MdCardModule } from '@angular2-material/card';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {BucketListService} from './dashboard/bucketlist.service';
-import {LoginService} from './login/login.service';
-import {RegisterService} from './register/register.service';
+import { BucketlistitemsComponent } from './bucketlistitems/bucketlistitems.component'
+import { BucketListService } from './dashboard/bucketlist.service';
+import { LoginService } from './login/login.service';
+import { RegisterService } from './register/register.service';
+import { ItemsService } from './bucketlistitems/items.service';
+
+
 
 
 @NgModule({
@@ -20,22 +27,27 @@ import {RegisterService} from './register/register.service';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    BucketlistitemsComponent 
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    MdCardModule,
+    // BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot(),
     RouterModule.forRoot([
       {path:'register', component: RegisterComponent},
       {path:'login', component: LoginComponent},
-      {path:'dashboard', component: DashboardComponent},
+      {path:'bucketlists', component: DashboardComponent},
       {path:'welcome', component: HomeComponent},
+      {path:'bucketlistitems', component: BucketlistitemsComponent,},
       {path:'', redirectTo:'welcome', pathMatch:'full'},
       {path:'**', redirectTo:'welcome', pathMatch:'full'}])
   ],
-  providers: [BucketListService, LoginService, RegisterService],
+  providers: [BucketListService, LoginService, RegisterService, ItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

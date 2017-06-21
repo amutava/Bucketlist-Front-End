@@ -41,6 +41,18 @@ export class BucketListService{
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+   public searchbucket(search){
+    return this.http
+      .get(this.bucketlistsUrl+"?q="+<string>search, {"headers" : this.getHeaders()})
+      .map(response => {
+        if (response){
+          return response.json();
+        }
+       
+      })
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   public editBucketList(bucketListId, name): Observable<any>{
 
   	return this.http
@@ -59,15 +71,7 @@ export class BucketListService{
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  // public getBucketList(bucketListId){
-  // 	return this.http
-  //     .get(this.bucketlistsUrl + <string>bucketListId, {"headers" : this.getHeaders()})
-  //     .map(response => {
-  //       return new BucketList(response.json());
-  //     })
-  //     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-  // }
-
+ 
   public addBucketListItem(name, bucketlistId){
      return this.http
       .post(this.bucketListItemUrl +"/"+<string>bucketlistId + "/items", JSON.stringify({"name": name}), {"headers" : this.getHeaders()})
@@ -77,34 +81,16 @@ export class BucketListService{
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  public getBucketListItems(bucketListId){
-     return this.http
-      .get(this.bucketListItemUrl +"/"+<string>bucketListId + "/items", {"headers" : this.getHeaders()})
+   public getBucketList(bucketListId){
+   return this.http
+      .get(this.bucketlistsUrl + "/"+<string>bucketListId, {"headers" : this.getHeaders()})
       .map(response => {
-        return response.json();
+        return new BucketList(response.json());
       })
-      //.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  // public getBucketListItem(bucketListId, itemId){
-  // 	 return this.http
-  //     .get(this.bucketListItemUrl +"/"+<string>bucketListId + "/items/"+<string>itemId, {"headers" : this.getHeaders()})
-  //     .map(response => {
-  //       return new BucketListItem(response.json());
-  //     })
-  //     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-  
-  // }
-     
 
-  // public editBucketListItem(bucketListId, itemId, name){
-  // 	return this.http
-  //     .put(this.bucketListItemUrl +<string>bucketListId + "/items/"+ <string>itemId, JSON.stringify({"name": name}), {"headers" : this.getHeaders()})
-  //     .map(response => {
-  //       return new BucketListItem(response.json());
-  //     })
-  //     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-  // }
       
 
    private getHeaders() {
