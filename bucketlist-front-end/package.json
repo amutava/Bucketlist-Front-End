@@ -26,6 +26,7 @@
     "angular-material": "^1.1.4",
     "angular2-notifications": "^0.4.53",
     "core-js": "^2.4.1",
+    "ng2-pagination": "^2.0.1",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.4.1",
     "systemjs": "^0.20.14",

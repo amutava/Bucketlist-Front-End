@@ -23,12 +23,12 @@
     </div>
     </td>
     <td>
-    <nav aria-label="Page">
-    <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
+     <pagination-controls (pageChange)="page = $event" id="1"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true">
+                </pagination-controls>`  
+    
 
     </td>
     </tr>
@@ -81,7 +81,7 @@
 <br/>
 
      <div class="row" >
-        <div class="col s12 m4 l4" *ngFor="let bucket of buckets.bucketlists" >
+        <div class="col s12 m4 l4" *ngFor="let bucket of buckets.bucketlists | paginate: {itemsPerPage: 5, currentPage:page, id: '1'}; let i = index" >
           <div class="card">
             <div class="card-image">
                 <img src="./assets/images/pattern.jpg">
@@ -190,6 +190,8 @@
              
                 </div>
                 </div>
+
+             
 
 
 

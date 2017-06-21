@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MdCardModule } from '@angular2-material/card';
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import {Ng2PaginationModule} from 'ng2-pagination'; //importing ng2-pagination
+
 
 
 import { AppComponent } from './app.component';
@@ -35,7 +37,8 @@ import { ItemsService } from './bucketlistitems/items.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MdCardModule,
+    MdCardModule, 
+    Ng2PaginationModule, 
     // BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot(),
     RouterModule.forRoot([

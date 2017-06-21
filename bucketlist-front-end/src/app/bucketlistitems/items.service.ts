@@ -14,7 +14,7 @@ import 'rxjs/add/observable/throw';
 export class ItemsService{
 
 	// Resolve HTTP using the constructor
-    constructor (private http: Http) {}
+   constructor (private http: Http) {}
    // private instance variable to hold base url
    private bucketListItemUrl = "http://localhost:5000/bucketlistitems";
 
