@@ -39,7 +39,6 @@ import { ItemsService } from './bucketlistitems/items.service';
     HttpModule,
     MdCardModule, 
     Ng2PaginationModule, 
-    // BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot(),
     RouterModule.forRoot([
       {path:'register', component: RegisterComponent},

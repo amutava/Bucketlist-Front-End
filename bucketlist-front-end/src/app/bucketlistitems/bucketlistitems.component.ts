@@ -19,20 +19,20 @@ export class BucketlistitemsComponent implements OnInit {
     private route:ActivatedRoute,
     private bucketListService:BucketListService,
     private service: NotificationsService) {}
-    message: any ='';
-    itemId:number = 0;
-    items:any = {};
-    item = [];
-    name;
+  message: any ='';
+  itemId:number = 0;
+  items:any = {};
+  item = [];
+  name;
 
   ngOnInit() {
     this.getItems()
   }
- setItem(id){
-  this.itemId = id;
- }
- setBucketId(id){
- this.bucketlistId = id;
+  setItem(id){
+    this.itemId = id;
+  }
+  setBucketId(id){
+   this.bucketlistId = id;
  }
  getItems(){
    this.route.queryParams.subscribe(params=>{
@@ -40,51 +40,51 @@ export class BucketlistitemsComponent implements OnInit {
     this.bucketListService.getBucketList(this.bucketlistId).subscribe(
       (response)=>{
        this.service.success(
-          'Success',
-          "Items obtained Successfully!",
-    {
-        timeOut: 5000,
-        showProgressBar: true,
-        pauseOnHover: false,
-        clickToClose: false,
-        maxLength: 50
-    })
+        'Success',
+        "Items obtained Successfully!",
+        {
+          timeOut: 5000,
+          showProgressBar: true,
+          pauseOnHover: false,
+          clickToClose: false,
+          maxLength: 50
+        })
        
        this.bucketlist= response
-      })
-    })
-  }
+     })
+  })
+ }
 
-deleteItem(){
-	let response = this.itemsService.deleteBucketListItem(this.bucketlistId, this.itemId).subscribe(response => {
-  	this.message = response.message;
-    this.getItems()
-    this.service.success(
-          'Success',
-          "Item Deleted Successfully!",
-    {
+ deleteItem(){
+   let response = this.itemsService.deleteBucketListItem(this.bucketlistId, this.itemId).subscribe(response => {
+     this.message = response.message;
+     this.getItems()
+     this.service.success(
+      'Success',
+      "Item Deleted Successfully!",
+      {
         timeOut: 5000,
         showProgressBar: true,
         pauseOnHover: false,
         clickToClose: false,
         maxLength: 50
-    })
-    });
-}
-editItem(){
+      })
+   });
+ }
+ editItem(){
   let response = this.itemsService.editBucketListItem(this.bucketlistId, this.itemId, this.name).subscribe(response => {
     console.log(response);
     this.getItems()
     this.service.success(
-          'Success',
-          "Item Edited Successfully!",
-    {
+      'Success',
+      "Item Edited Successfully!",
+      {
         timeOut: 5000,
         showProgressBar: true,
         pauseOnHover: false,
         clickToClose: false,
         maxLength: 50
-    })
-    });
+      })
+  });
 }
 }

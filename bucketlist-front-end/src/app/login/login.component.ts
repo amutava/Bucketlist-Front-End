@@ -9,15 +9,15 @@ import { Router } from '@angular/router'
 export class LoginComponent implements OnInit {
   
   //A router for routing to a different page.
-    constructor(private loginService: LoginService, private router: Router) { }
-    message: any = ''
-    token: any = ''
-    username: any = ''
+  constructor(private loginService: LoginService, private router: Router) { }
+  message: any = ''
+  token: any = ''
+  username: any = ''
   ngOnInit() {
   }
 
 
-submit(data){
+  submit(data){
     this.loginService.postUser(data)
     .subscribe(response => {
       this.message = response.message
@@ -31,5 +31,5 @@ submit(data){
         
       }
     });
-}
+  }
 }

@@ -14,7 +14,7 @@ export class LoginService{
   private loginUrl = "http://localhost:5000/auth/login";
   // Resolve HTTP using the constructor
   constructor (private http: Http) {}
-     
+  
   // Add a new comment
   postUser (body: Object): Observable<any> {
   //let bodyString = JSON.stringify(body); // Stringify payload
@@ -23,11 +23,11 @@ export class LoginService{
   return this.http.post(this.loginUrl, JSON.stringify(body), {headers: this.getHeaders()}) // ...using post request
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
-  }
-  private getHeaders() {
-  let headers = new Headers();
-  headers.append('Accept', 'application/json');
-  headers.append('Content-Type', 'application/json');
-  return headers;
-  }
-}
+                       }
+                       private getHeaders() {
+                        let headers = new Headers();
+                        headers.append('Accept', 'application/json');
+                        headers.append('Content-Type', 'application/json');
+                        return headers;
+                      }
+                    }

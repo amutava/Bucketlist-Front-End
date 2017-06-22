@@ -7,30 +7,21 @@ import { Router } from '@angular/router'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    
+  
   constructor(private registerService: RegisterService, private router: Router) { }
   message: any ='';
 
   ngOnInit() {
   }
-  // submit(data) {
-  //   let response = this.registerService.addUser(data).toPromise().then((data) => {
-  //    this.router.navigate(['./login']);
-  //   console.log(response);
-  // }).catch((error) => {
-  // 	this.errorMessage = error.json();
-  //     console.log('there was an error');
-  //   });
 
-
-submit(data){
+  submit(data){
     this.registerService.addUser(data)
     .subscribe(response => {
       this.message = response.message
       console.log(this.message)
-        this.router.navigate(["/login"])
+      this.router.navigate(["/login"])
       
     });
- 
-}
+    
+  }
 }
