@@ -41,7 +41,6 @@ export class DashboardComponent implements OnInit {
     
   }
   
-
   addBucketList(data){
    let response = this.bucketListService.createBucketList(data).subscribe(response => {
     console.log(response);
@@ -63,7 +62,6 @@ export class DashboardComponent implements OnInit {
 
  }
 
-
  getBucketLists(){
    let response = this.bucketListService.getBucketLists().subscribe(response => {
     this.buckets = response
@@ -73,6 +71,7 @@ export class DashboardComponent implements OnInit {
  setId(id){
   this.bucketlistId = id;
 }
+
 editBucketList(){
   let response = this.bucketListService.editBucketList(this.bucketlistId, this.name).subscribe(response => {
     let bucket = this.buckets.bucketlists.filter((t)=>t.id == this.bucketlistId)[0];
@@ -108,8 +107,6 @@ deleteBucketList(){
    this.getBucketLists();
  });
 }
-
-
 
 addItem(name){
 	let response = this.bucketListService.addBucketListItem(name, this.bucketlistId).subscribe( response=> {
