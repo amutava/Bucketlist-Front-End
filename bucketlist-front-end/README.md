@@ -10,7 +10,8 @@ Navigate to the root folder <br/>
 `cd bucketlist-front-end`
 
 Install the modules <br/>
-`npm install`
+`npm install`<br/>
+
 Run the server <br/>
 `ng serve`
 ## Development server
