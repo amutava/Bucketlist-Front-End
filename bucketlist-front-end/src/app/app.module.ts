@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
 import { MdCardModule } from '@angular2-material/card';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import {Ng2PaginationModule} from 'ng2-pagination'; //importing ng2-pagination
-
-
+import { MomentModule } from 'angular2-moment';
+import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -19,9 +19,6 @@ import { BucketListService } from './dashboard/bucketlist.service';
 import { LoginService } from './login/login.service';
 import { RegisterService } from './register/register.service';
 import { ItemsService } from './bucketlistitems/items.service';
-
-
-
 
 @NgModule({
   declarations: [
@@ -37,8 +34,10 @@ import { ItemsService } from './bucketlistitems/items.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MdCardModule, 
+    MdCardModule,
+    ToasterModule, 
     Ng2PaginationModule, 
+    MomentModule,
     SimpleNotificationsModule.forRoot(),
     RouterModule.forRoot([
       {path:'register', component: RegisterComponent},

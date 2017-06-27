@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnChanges, OnInit} from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router'
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   templateUrl: './login.component.html',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router'
 export class LoginComponent implements OnInit {
   
   //A router for routing to a different page.
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router,
+    private service: NotificationsService) { }
   message: any = ''
   token: any = ''
   username: any = ''
@@ -28,8 +30,19 @@ export class LoginComponent implements OnInit {
         this.router.navigate(["./bucketlists"])
         localStorage.setItem('token', this.token)
         localStorage.setItem('username', response.username)
+        this.service.success(
+        'Success',
+        "User logged in Successfully!",
+        {
+          timeOut: 5000,
+          showProgressBar: true,
+          pauseOnHover: false,
+          clickToClose: false,
+          maxLength: 50
+        })
         
       }
     });
+   
   }
 }

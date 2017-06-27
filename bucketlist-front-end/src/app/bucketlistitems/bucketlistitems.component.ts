@@ -39,6 +39,7 @@ export class BucketlistitemsComponent implements OnInit {
     this.bucketlistId = +params["bucketlistId"];
     this.bucketListService.getBucketList(this.bucketlistId).subscribe(
       (response)=>{
+       this.bucketlist= response
        this.service.success(
         'Success',
         "Items obtained Successfully!",
@@ -50,11 +51,10 @@ export class BucketlistitemsComponent implements OnInit {
           maxLength: 50
         })
        
-       this.bucketlist= response
+       
      })
   })
  }
-
  deleteItem(){
    let response = this.itemsService.deleteBucketListItem(this.bucketlistId, this.itemId).subscribe(response => {
      this.message = response.message;

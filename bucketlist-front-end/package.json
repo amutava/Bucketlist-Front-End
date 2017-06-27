@@ -1,4 +1,4 @@
-{
+    {
   "name": "bucketlist-front-end",
   "version": "0.0.0",
   "license": "MIT",
@@ -24,7 +24,9 @@
     "@angular/router": "^3.4.10",
     "@angular2-material/card": "^2.0.0-alpha.8-experimental3",
     "angular-material": "^1.1.4",
+    "angular2-moment": "^1.4.0",
     "angular2-notifications": "^0.4.53",
+    "angular2-toaster": "^1.0.0",
     "core-js": "^2.4.1",
     "ng2-pagination": "^2.0.1",
     "reflect-metadata": "^0.1.10",
