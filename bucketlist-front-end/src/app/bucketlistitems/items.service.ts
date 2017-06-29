@@ -25,7 +25,7 @@ export class ItemsService{
       .map(response => {
         return response.json();
       })
-      //.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      
   }
 
   public deleteBucketListItem(bucketListId, itemId){

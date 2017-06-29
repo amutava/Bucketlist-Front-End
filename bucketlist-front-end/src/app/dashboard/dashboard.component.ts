@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnChanges, OnInit} from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Router } from '@angular/router';
+import { Router, CanActivate} from '@angular/router';
 import {BucketListService} from './bucketlist.service'
 import {BucketList} from "./model"
 import {BucketListItem} from "./bucketlistitem"
@@ -14,14 +14,14 @@ import { NotificationsService } from 'angular2-notifications';
   styleUrls: ['./dashboard.component.css'],
   providers: [BucketListService]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit ,CanActivate {
 
   constructor(private bucketListService: BucketListService,
    private router: Router,
    private service: NotificationsService
    
    ) {}
-  message: any ='';
+  message: any = '';
   buckets: any = {};
   items: BucketListItem[] =[];
   bucketlists =[];
@@ -71,8 +71,14 @@ export class DashboardComponent implements OnInit {
  setId(id){
   this.bucketlistId = id;
 }
+canActivate() {
+    if(localStorage.getItem('token')){
+      return true;
+    }
 
-editBucketList(){
+  }
+editBucketList()
+{
   let response = this.bucketListService.editBucketList(this.bucketlistId, this.name).subscribe(response => {
     let bucket = this.buckets.bucketlists.filter((t)=>t.id == this.bucketlistId)[0];
     bucket.name = this.name

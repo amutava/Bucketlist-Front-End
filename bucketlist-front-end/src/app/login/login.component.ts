@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-
   submit(data){
     this.loginService.postUser(data)
     .subscribe(response => {
@@ -27,9 +26,10 @@ export class LoginComponent implements OnInit {
       console.log(this.message)
 
       if(this.token != null){
-        this.router.navigate(["./bucketlists"])
-        localStorage.setItem('token', this.token)
-        localStorage.setItem('username', response.username)
+        this.router.navigate(["./bucketlists"]);
+        localStorage.setItem('token', this.token);
+        localStorage.setItem('username', response.username);
+        window.location.reload();
         this.service.success(
         'Success',
         "User logged in Successfully!",

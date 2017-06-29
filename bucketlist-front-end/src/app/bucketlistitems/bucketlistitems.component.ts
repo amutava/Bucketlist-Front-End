@@ -25,24 +25,31 @@ export class BucketlistitemsComponent implements OnInit {
   item = [];
   name;
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.getItems()
   }
-  setItem(id){
+  setItem(id)
+  {
     this.itemId = id;
   }
-  setBucketId(id){
+
+  setBucketId(id)
+  {
    this.bucketlistId = id;
- }
+  }
+
  getItems(){
    this.route.queryParams.subscribe(params=>{
     this.bucketlistId = +params["bucketlistId"];
     this.bucketListService.getBucketList(this.bucketlistId).subscribe(
       (response)=>{
        this.bucketlist= response
-       this.service.success(
+       console.log(response.items)
+       if (response.items.length>0){ 
+        this.service.success(
         'Success',
-        "Items obtained Successfully!",
+        "Items obtained Successfully.",
         {
           timeOut: 5000,
           showProgressBar: true,
@@ -50,6 +57,19 @@ export class BucketlistitemsComponent implements OnInit {
           clickToClose: false,
           maxLength: 50
         })
+      }else{
+        this.service.error(
+        'No item found',
+        "Add items to the bucketlist.",
+        {
+          timeOut: 5000,
+          showProgressBar: true,
+          pauseOnHover: false,
+          clickToClose: false,
+          maxLength: 50
+        })
+      }
+      
        
        
      })
@@ -73,6 +93,7 @@ export class BucketlistitemsComponent implements OnInit {
  }
  editItem(){
   let response = this.itemsService.editBucketListItem(this.bucketlistId, this.itemId, this.name).subscribe(response => {
+  
     console.log(response);
     this.getItems()
     this.service.success(

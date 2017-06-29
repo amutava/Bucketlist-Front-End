@@ -38,10 +38,8 @@
           </tr>
         </tbody>
       </table>
-      <label for="exampleSelect1">Item Name</label>
-      <input class="form-control" required name= "itemname" placeholder="New Item Name"
-      [(ngModel)]="name"><br/>
-      <button class="btn btn-success" (click)="setItem(bucket.id);editItem();setBucketId(bucketlist.id)" >Edit Item</button>
+      
+      <button class="btn btn-success" data-toggle="modal" data-target="#myEditModal" (click)="setItem(bucket.id);editItem();setBucketId(bucketlist.id)" >Edit Item</button>
       <button class="btn waves-effect waves-light red"  data-toggle="modal" data-target="#myModal" (click)="setItem(bucket.id);setBucketId(bucketlist.id)">Delete Item</button>
 
     </div>
@@ -66,6 +64,29 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal" (click) = "deleteItem()">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--Modal for edit item-->
+<div id="myEditModal" class="modal fade transparent" style="box-shadow: 0px 0px 0px 0px" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <div class="modal-body">
+        <label for="exampleSelect1">Item Name</label>
+      <input class="form-control" required name= "itemname" placeholder="New Item Name"
+      [(ngModel)]="name"><br/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn waves-effect waves-light red" data-dismiss="modal" (click) = "editItem()">Edit</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
     </div>

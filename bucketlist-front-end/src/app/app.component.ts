@@ -12,13 +12,13 @@ import { NotificationsService } from 'angular2-notifications';
   <a class="navbar-brand" href="#">BucketListApp</a>
   </div>
   <ul class="nav navbar-nav">
-  <li class="active"><a [routerLink]="['/welcome']">Home</a></li>
+  <li *ngIf="!isLoggedIn()" class="active"><a [routerLink]="['/welcome']">Home</a></li>
   </ul>
 
   <ul class="nav navbar-nav navbar-right">
-  <li><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-  <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-  <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+  <li *ngIf="!isLoggedIn()"><a [routerLink]="['/register']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+  <li *ngIf="!isLoggedIn()"><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>  
+  <li *ngIf="isLoggedIn()"><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
   </ul>
   </div>
   </nav>
@@ -40,12 +40,18 @@ import { NotificationsService } from 'angular2-notifications';
 
 
 export class AppComponent {
- constructor(private router: Router, 
+  private loggedIn = false;
+  constructor(private router: Router, 
   private service: NotificationsService) { }
+
+ ngOnInit() {
+    this.loggedIn = !!localStorage.getItem('token');
+  }
  logout() {
   localStorage.removeItem('token');
   this.router.navigate(["/welcome"])
-   this.service.success(
+  this.loggedIn = false;
+  this.service.success(
         'Success',
         "Logout Successfully!",
         {
@@ -56,4 +62,7 @@ export class AppComponent {
           maxLength: 50
         })
 }
+isLoggedIn() {
+    return this.loggedIn;
+  }
 }

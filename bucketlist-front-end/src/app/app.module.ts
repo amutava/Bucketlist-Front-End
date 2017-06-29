@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, CanActivate} from '@angular/router';
 import { MdCardModule } from '@angular2-material/card';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import {Ng2PaginationModule} from 'ng2-pagination'; //importing ng2-pagination
 import { MomentModule } from 'angular2-moment';
-import {ToasterModule, ToasterService} from 'angular2-toaster';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -34,8 +34,7 @@ import { ItemsService } from './bucketlistitems/items.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MdCardModule,
-    ToasterModule, 
+    MdCardModule, 
     Ng2PaginationModule, 
     MomentModule,
     SimpleNotificationsModule.forRoot(),
