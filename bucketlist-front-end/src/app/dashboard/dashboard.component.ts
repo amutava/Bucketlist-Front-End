@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnChanges, OnInit} from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Router, CanActivate} from '@angular/router';
+import { Router} from '@angular/router';
 import {BucketListService} from './bucketlist.service'
 import {BucketList} from "./model"
 import {BucketListItem} from "./bucketlistitem"
@@ -14,7 +14,7 @@ import { NotificationsService } from 'angular2-notifications';
   styleUrls: ['./dashboard.component.css'],
   providers: [BucketListService]
 })
-export class DashboardComponent implements OnInit ,CanActivate {
+export class DashboardComponent implements OnInit  {
 
   constructor(private bucketListService: BucketListService,
    private router: Router,
@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit ,CanActivate {
     console.log(this.message);
     this.service.success(
       'Success',
-      "Bucketlist added Successfully!",
+      this.message,
       {
         timeOut: 5000,
         showProgressBar: true,
@@ -71,12 +71,7 @@ export class DashboardComponent implements OnInit ,CanActivate {
  setId(id){
   this.bucketlistId = id;
 }
-canActivate() {
-    if(localStorage.getItem('token')){
-      return true;
-    }
 
-  }
 editBucketList()
 {
   let response = this.bucketListService.editBucketList(this.bucketlistId, this.name).subscribe(response => {
@@ -86,7 +81,7 @@ editBucketList()
     this.getBucketLists();
     this.service.success(
       'Success',
-      "Bucketlist edited Successfully!",
+      this.message,
       {
         timeOut: 5000,
         showProgressBar: true,

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         window.location.reload();
         this.service.success(
         'Success',
-        "User logged in Successfully!",
+        "Login successfully.",
         {
           timeOut: 5000,
           showProgressBar: true,
@@ -41,6 +41,18 @@ export class LoginComponent implements OnInit {
           maxLength: 50
         })
         
+      }else{
+        this.service.error(
+        'Failure',
+        "Invalid credentials.i",
+        {
+          timeOut: 5000,
+          showProgressBar: true,
+          pauseOnHover: false,
+          clickToClose: false,
+          maxLength: 50
+        })
+
       }
     });
    
