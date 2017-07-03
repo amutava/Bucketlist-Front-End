@@ -1,4 +1,4 @@
-# BucketlistFrontEnd
+# Bucketlist FrontEnd
 This is a web application created using angular2. It is an application that consumes flaskApi to do simple fuctionalities like creating a bucketlist, editing, deleting and adding items to it. <br/>
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
@@ -36,22 +36,22 @@ Pagination of both bucketlists
 * Run the server <br/> 
   `ng serve`
 
-* Development server
+* Development server <br/> 
   Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-* Code scaffolding 
+* Code scaffolding <br/> 
  Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-* Build 
+* Build <br/> 
  Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-* Deploying to GitHub Pages 
+* Deploying to GitHub Pages <br/> 
 
  Run `ng github-pages:deploy` to deploy to GitHub Pages.
 
-* Further help 
+* Further help <br/> 
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Screenshots  for the userinterface
+## Screenshots for the user interface
 ## Main Page
 ![Screen shot](src/assets/images/bucketlist.png)
 
