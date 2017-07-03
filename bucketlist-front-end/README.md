@@ -54,6 +54,8 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 ## Screenshots for the user interface
 ## Main Page
 ![Screen shot](src/assets/images/bucketlist.png)
+## Items Page
+![Screen shot](src/assets/images/items.png)
 
 
 
