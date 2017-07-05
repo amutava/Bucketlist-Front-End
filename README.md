@@ -53,6 +53,6 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 
 ## Screenshots for the user interface
 ## Main Page
-![Screen shot]( Bucketlist-Front-End/src/assets/images/bucketlist.png)
+![Screen shot]( bucketlist-front-end/src/assets/images/bucketlist.png)
 ## Items Page
-![Screen shot]( Bucketlist-Front-End/src/assets/images/items.png)
+![Screen shot]( bucketlist-front-end/src/assets/images/items.png)
