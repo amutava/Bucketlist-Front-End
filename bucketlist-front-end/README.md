@@ -1,4 +1,4 @@
-# Bucketlist-Front-End
+# Bucketlist FrontEnd
 This is a web application created using angular2. It is an application that consumes flaskApi to do simple fuctionalities like creating a bucketlist, editing, deleting and adding items to it. <br/>
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
@@ -53,6 +53,11 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 
 ## Screenshots for the user interface
 ## Main Page
-![Screen shot]( Bucketlist-Front-End/src/assets/images/bucketlist.png)
+![Screen shot](src/assets/images/bucketlist.png)
 ## Items Page
-![Screen shot]( Bucketlist-Front-End/src/assets/images/items.png)
+![Screen shot](src/assets/images/items.png)
+
+
+
+
+
