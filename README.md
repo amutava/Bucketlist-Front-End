@@ -3,7 +3,7 @@ This is a web application created using angular2. It is an application that cons
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
 ## Learning Materials
-As a beginner in angualar2 the materials used to achieve the fully functional frontend were:<br/>
+As a beginner in angular2 the materials used to achieve the fully functional frontend were:<br/>
 * Pluralsight angular2 course by Deborah Kurata.
 * Angular website.
 * Googling basic errors online and checking out user responses.
