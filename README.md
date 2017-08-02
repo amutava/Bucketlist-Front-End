@@ -11,7 +11,7 @@ As a beginner in angular2 the materials used to achieve the fully functional fro
 * Cloning the angular2 CLI as the backbone of the application.
 * Learning the basics of Javascript is also essential.
 
-## Basic fuctionalities
+## Basic functionalities
 ```
 User Login/ Registration.
 User creating bucketlist.
